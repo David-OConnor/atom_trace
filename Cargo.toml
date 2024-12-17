@@ -1,0 +1,14 @@
+[package]
+name = "atom_trace"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+graphics = { path = "../../graphics" }
+lin_alg = "^1.0"
+#lin_alg = { path = "../../lin_alg" }
+egui = "^0.29.1"
+
+rand = "^0.8.5"
+
+# cudarc = { version = "^0.12.1", features=["cuda-12060"] }
