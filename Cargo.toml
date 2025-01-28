@@ -5,10 +5,25 @@ edition = "2021"
 
 [dependencies]
 graphics = { path = "../../graphics" }
-lin_alg = "^1.0"
-#lin_alg = { path = "../../lin_alg" }
-egui = "^0.29.1"
+#lin_alg = "^1.0.4"
+lin_alg = { path = "../../lin_alg" }
+
+barnes_hut = { path = "../../barnes_hut"}
+
+egui = "^0.30.0"
 
 rand = "^0.8.5"
 
-# cudarc = { version = "^0.12.1", features=["cuda-12060"] }
+rayon = "^1.10.0"  # Parallel execution on CPU using thread pools.
+
+# Keep this cuda version in sync with what you have installed on the system.
+cudarc = { version = "^0.13.3", optional=true, features=["cuda-12060"] }
+
+
+[build-dependencies]
+cuda_setup = { version = "0.1.0", optional = true }
+
+
+[features]
+default = ["cuda"]
+cuda = ["cudarc", "cuda_setup"]
